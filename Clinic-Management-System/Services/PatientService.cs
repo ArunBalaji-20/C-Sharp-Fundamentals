@@ -31,6 +31,25 @@ namespace Clinic_Management_System.Services
             return _patients;
         }
 
+        public static int GetCount()
+        {
+            return _patients.Count;
+        }
+
+        public static string GetPatientName(int PatientId)
+        {
+            //string name = (from p in _patients
+            //               where p.Id == PatientId
+            //               select p.FirstName).FirstOrDefault();
+            //string name = _patients.FirstOrDefault(p => p.Id == PatientId)?.FirstName;
+
+            var patient = _patients.FirstOrDefault(p => p.Id == PatientId);
+            string name = patient != null ? patient.FirstName +" " + patient.LastName : null;
+
+
+            return name;
+        }
+
         public static bool DeleteByMRN(int MRN)
         {
             var existingData = _patients.Find(p=>p.MedicalRecordNumber==MRN);

@@ -24,13 +24,27 @@ namespace Clinic_Management_System.Services
         {
             return _appoinments;
         }
+        public static int GetCount()
+        {
+            return _appoinments.Count;
+        }
+        public static List<Appointment> GetAppointmentsForTheDay(DateTime GivenDateAndTime)
+        {
+            var results = _appoinments.FindAll(p => p.DateAndTime.Date == GivenDateAndTime.Date);
+            return results;
+        }
         
+        public static List<Appointment> GetOnePatientRecords(int patientId)
+        {
+            var patientRecords = _appoinments.FindAll(p=>p.PatientId==patientId);
+            return patientRecords;
+        }
 
         public static bool RescheduleAppointment(string appointmentId,DateTime newDateTime)
         {
             var existingAppointment=_appoinments.Find(ap=>ap.AppoinmentId == appointmentId);
-
-            if (existingAppointment!=null)
+            bool IsSlotAvail = _appoinments.Any(ap=>ap.DateAndTime==newDateTime);
+            if (existingAppointment!=null && IsSlotAvail==false)
             {
                 existingAppointment.DateAndTime = newDateTime;
                 return true;

@@ -27,6 +27,11 @@ namespace Clinic_Management_System.Services
             return _doctor;
         }
 
+        public static int GetCount()
+        {
+            return _doctor.Count;
+        }
+
         public static bool DeleteDoctor(Guid doctorId)
         {
             var Doc = _doctor.Find(p => p.LicenseNumber == doctorId);

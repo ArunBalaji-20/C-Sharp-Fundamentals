@@ -22,7 +22,7 @@ namespace Clinic_Management_System.UIComponents
                 1. Add Patient 
                 2. List all Patients
                 3. Delete Patient by MRNId
-                4. Exit to Main menu
+                4. Save & Exit to Main menu
                 ");
 
                 int i;

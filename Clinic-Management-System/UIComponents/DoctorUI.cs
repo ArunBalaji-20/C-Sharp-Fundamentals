@@ -20,7 +20,8 @@ namespace Clinic_Management_System.UIComponents
                 1. Add Doctors 
                 2. List all Doctors
                 3. Delete Doctor by Id
-                4. Exit to Main menu
+                4. Diagnoses and Treatments
+                5. Save & Exit to Main menu
                 ");
 
                 int i;
@@ -43,6 +44,10 @@ namespace Clinic_Management_System.UIComponents
                         Delete();
                         break;
                     case 4:
+                        Console.WriteLine("Diagnoses and Treatments");
+                        Treatment();
+                        break;
+                    case 5:
                         Console.WriteLine("exiting");
                         await SaveData();
                         running = false;
@@ -131,6 +136,11 @@ namespace Clinic_Management_System.UIComponents
             {
                 Console.WriteLine("Data not removed , Invalid id");
             }
+        }
+
+        public void Treatment()
+        {
+
         }
 
         public async Task SaveData()

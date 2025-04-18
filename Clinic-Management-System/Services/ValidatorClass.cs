@@ -14,7 +14,7 @@ namespace Clinic_Management_System.Services
         {
             while (true)
             {
-                Console.WriteLine("enter date and time (e.g. 2025-04-16 14:30)");
+                Console.WriteLine("enter date and time (e.g.  22-04-2025 15:20:00 )");
                 string? input = Console.ReadLine();
                 DateTime AppointmentDateTime;
                 if (DateTime.TryParse(input, out AppointmentDateTime))
@@ -65,6 +65,25 @@ namespace Clinic_Management_System.Services
                 }
             }
 
+        }
+
+        public static string AppointmentIdValidator()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter appointmentid (eg. ap1):");
+                string InpId = Console.ReadLine();
+                bool validId = AppointmentManager.isAppointmentValid(InpId);
+                if (validId)
+                {
+                    return InpId;
+                }
+                else
+                {
+                    Console.WriteLine("enter a valid appointment id:");
+                }
+
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Clinic_Management_System.UIComponents
                 2. List All Appoinments
                 3. reschedule appoinment
                 4. cancel appoinment
-                5. Exit to Main menu
+                5. Save & Exit to Main menu
                 ");
 
                 int i;
@@ -86,7 +86,7 @@ namespace Clinic_Management_System.UIComponents
 
         }
 
-        public void ListAll()
+        public static void ListAll()
         {
             Console.Clear();
             var AppointmentData = AppointmentManager.GetAll();
@@ -131,7 +131,7 @@ namespace Clinic_Management_System.UIComponents
         {
             while (true)
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("----Rescheduling Appointment----");
 
                 Console.WriteLine("Enter your appointmentId (eg. ap1) :");
@@ -149,7 +149,7 @@ namespace Clinic_Management_System.UIComponents
                     }
                     else
                     {
-                        Console.WriteLine("Error in rescheduling , try again");
+                        Console.WriteLine("Error in rescheduling , try again with different slot");
                     }
 
                 }
